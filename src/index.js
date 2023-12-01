@@ -46,8 +46,8 @@ function photoTemplate({
     `;
 }
 
-function photoesTemplate(photoArr) {
-  return photoArr.map(photoTemplate).join('');
+function photoesTemplate(photoArray) {
+  return photoArray.map(photoTemplate).join('');
 }
 
 function renderPhotos(photoArr) {
