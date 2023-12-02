@@ -1,5 +1,8 @@
 import { PixabayAPI } from './pixabay-api';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
+
 
 const refs = {
   searchFormEl: document.querySelector('#search-form'),
@@ -21,9 +24,9 @@ function photoTemplate({
   comments,
   downloads,
 }) {
-  return `
+    return `
     <div class="photo-card">
-        <div class="img-container"><a href="${largeImageURL}"><img src="${webformatURL}" alt="${tags}" loading="lazy" /></a></div>
+        <div class="img-container"><img src="${webformatURL}" alt="${tags}" loading="lazy" /></div>
         <div class="info">
             <p class="info-item">
                 <b>Likes</b>
@@ -51,6 +54,7 @@ function photoesTemplate(photoArray) {
 }
 
 function renderPhotos(photoArr) {
+refs.galleryEl.innerHTML = "";
   const markup = photoesTemplate(photoArr);
   refs.galleryEl.insertAdjacentHTML('beforeend', markup);
 }
